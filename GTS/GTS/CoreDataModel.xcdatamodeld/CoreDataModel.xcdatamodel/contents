@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DOB" representedClassName=".DOB" parentEntity="User" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="dobRelationship" inverseEntity="User"/>
+    </entity>
+    <entity name="Location" representedClassName=".Location" parentEntity="User" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <relationship name="steetRel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Street" inverseName="locationRel" inverseEntity="Street"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="locationRelationship" inverseEntity="User"/>
+    </entity>
+    <entity name="Name" representedClassName=".Name" parentEntity="User" syncable="YES">
+        <attribute name="first" optional="YES" attributeType="String"/>
+        <attribute name="last" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="userRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="nameRelationship" inverseEntity="User"/>
+    </entity>
+    <entity name="Picture" representedClassName=".Picture" parentEntity="User" syncable="YES">
+        <attribute name="lasrge" optional="YES" attributeType="String"/>
+        <attribute name="medium" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <relationship name="userRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="pictureRelationship" inverseEntity="User"/>
+    </entity>
+    <entity name="Street" representedClassName=".Street" parentEntity="Location" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <relationship name="locationRel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="steetRel" inverseEntity="Location"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <relationship name="dobRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DOB" inverseName="user" inverseEntity="DOB"/>
+        <relationship name="locationRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="user" inverseEntity="Location"/>
+        <relationship name="nameRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Name" inverseName="userRelationship" inverseEntity="Name"/>
+        <relationship name="pictureRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Picture" inverseName="userRelationship" inverseEntity="Picture"/>
+    </entity>
+</model>
